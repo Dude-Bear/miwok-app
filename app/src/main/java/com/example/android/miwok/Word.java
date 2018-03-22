@@ -30,6 +30,9 @@ public class Word {
     /** Image resource ID for the word */
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
+    /** Sound resource ID for the word */
+    private int mSoundResourceId ;
+
     /** Constant value that represents no image was provided for this word */
     private static final int NO_IMAGE_PROVIDED = -1;
 
@@ -39,10 +42,12 @@ public class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
+     * @param soundResourceId is the resource ID for the audio file
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int soundResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mSoundResourceId = soundResourceId;
     }
 
     /**
@@ -52,12 +57,14 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      * @param imageResourceId is the drawable resource ID for the image associated with the word
+     * @param soundResourceId is the resource ID for the audio file
      *
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int soundResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mSoundResourceId = soundResourceId;
     }
 
     /**
@@ -79,6 +86,13 @@ public class Word {
      */
     public int getImageResourceId() {
         return mImageResourceId;
+    }
+
+    /**
+     * Return the audio resource ID of the word.
+     */
+    public int getSoundResourceId() {
+        return mSoundResourceId;
     }
 
     /**
